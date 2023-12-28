@@ -3,10 +3,10 @@ const getAllFeatures = (req, res) => {
     res.send('All Features');
 }
 const getFeature = (req, res) => {
-    res.send('All Features');
+    res.json({ id: req.params.id });
 }
 const createFeature = (req, res) => {
-    res.send('createFeature');
+    res.json(req.body);
 }
 const updateFeature = (req, res) => {
     res.send('updateFeatures');
