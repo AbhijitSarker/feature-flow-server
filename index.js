@@ -5,7 +5,7 @@ const PORT = 3000; // Define the port number
 
 // Define a route
 app.get('/', (req, res) => {
-    res.send('Hello, Express');
+    res.send('Hello, Express!');
 });
 
 
