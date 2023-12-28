@@ -1,13 +1,21 @@
 const express = require('express');
 const app = express();
-
+const mainRoutes = require('./routes/mainRoutes')
 const PORT = 3000; // Define the port number
+
+//middleware
+app.use(express.json());
+
 
 // Define a route
 app.get('/', (req, res) => {
     res.send('Hello, Express!');
 });
 
+
+
+
+app.use('/api/v1/feature', mainRoutes)
 
 //default error handler
 const errorHandler = (err, req, res, next) => {
