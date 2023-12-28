@@ -7,20 +7,30 @@ const getAllFeatures = async (req, res) => {
     try {
         const features = await Feature.find({})
         res.status(200).json({ features });
-    } catch {
+    } catch (err) {
         res.status(500).json({
             error: "There was a server side error!",
         });
     }
 
 }
-const getFeature = (req, res) => {
-    res.json({ id: req.params.id });
+
+const getFeature = async (req, res) => {
+    try {
+        const { id: featureId } = req.params;
+        const feature = await Feature.findOne({ _id: featureId });
+        res.status(200).json({ feature });
+
+    } catch (err) {
+        res.status(500).json({
+            error: "There was a server side error!",
+        });
+    }
 }
+
 const createFeature = async (req, res) => {
     try {
         const newFeature = new Feature(req.body);
-        console.log(req.body);
         await newFeature.save(); // Use await with save() directly
 
         res.status(200).json({
@@ -33,6 +43,7 @@ const createFeature = async (req, res) => {
     }
 
 }
+
 const updateFeature = async (req, res) => {
     const { id: featureId } = req.params;
 
@@ -48,8 +59,17 @@ const updateFeature = async (req, res) => {
     res.status(200).json({ feature })
 };
 
-const deleteFeature = (req, res) => {
-    res.send('deleteFeature');
+const deleteFeature = async (req, res) => {
+    try {
+        const { id: featureId } = req.params;
+        const feature = await Feature.findOneAndDelete({ _id: featureId })
+        res.status(200).json({ feature });
+    } catch (err) {
+        res.status(500).json({
+            error: "There was a server side error!",
+        });
+    }
+
 }
 
 module.exports = {
