@@ -1,4 +1,9 @@
 
+const mongoose = require('mongoose');
+const featureSchema = require("../models/featureSchema");
+const Feature = new mongoose.model('Feature', featureSchema);
+
+
 const getAllFeatures = (req, res) => {
     res.send('All Features');
 }
@@ -14,7 +19,6 @@ const updateFeature = (req, res) => {
 const deleteFeature = (req, res) => {
     res.send('deleteFeature');
 }
-
 
 module.exports = {
     getAllFeatures,
