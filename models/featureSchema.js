@@ -17,6 +17,20 @@ const FeatureSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now(),
+    },
+    userName: {
+        type: String,
+    },
+    userEmail: {
+        type: String
+    },
+    userAvatar: {
+        type: String,
+        maxlength: 255
+    },
+    votes: {
+        type: Number,
+        default: 7,
     }
 })
 
