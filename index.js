@@ -4,9 +4,11 @@ require('dotenv').config()
 const connectDB = require('./db/connect');
 const mainRoutes = require('./routes/mainRoutes')
 const PORT = 3000; // Define the port number
+const cors = require('cors');
+
 //middleware
 app.use(express.json());
-
+app.use(cors());
 
 // Define a route
 app.get('/', (req, res) => {
