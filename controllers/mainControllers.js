@@ -15,6 +15,31 @@ const getAllFeatures = async (req, res) => {
 
 }
 
+const searchFeatures = async (req, res, next) => {
+    try {
+        const { search } = req.query;
+
+        // If no search query is provided, proceed to the next middleware
+        if (!search || search.trim() === '') {
+            return next();
+        }
+
+        // Search for features based on title or description
+        const features = await Feature.find({
+            $or: [
+                { title: { $regex: new RegExp(search, 'i') } },
+                { description: { $regex: new RegExp(search, 'i') } },
+            ],
+        });
+
+        res.status(200).json({ features });
+    } catch (error) {
+        res.status(500).json({
+            error: 'There was a server side error!',
+        });
+    }
+};
+
 const getFeature = async (req, res) => {
     try {
         const { id: featureId } = req.params;
@@ -74,6 +99,7 @@ const deleteFeature = async (req, res) => {
 
 module.exports = {
     getAllFeatures,
+    searchFeatures,
     createFeature,
     updateFeature,
     deleteFeature,

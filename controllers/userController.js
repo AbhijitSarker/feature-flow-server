@@ -8,10 +8,10 @@ const createUser = async (req, res) => {
         await newUser.save(); // Use await with save() directly
 
         res.status(200).json({
-            message: "Feature was inserted successfully!",
+            message: "User was Created successfully!",
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(200).json({
             error: "There was a server side error!",
         });
     }

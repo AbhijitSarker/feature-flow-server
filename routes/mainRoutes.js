@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllFeatures, getFeature, updateFeature, deleteFeature, createFeature } = require('../controllers/mainControllers');
+const { getAllFeatures, getFeature, updateFeature, deleteFeature, createFeature, searchFeatures } = require('../controllers/mainControllers');
 
-router.route('/').get(getAllFeatures).post(createFeature)
+router.route('/').get(searchFeatures, getAllFeatures).post(createFeature)
 router.route('/:id').get(getFeature).put(updateFeature).delete(deleteFeature)
 module.exports = router;
