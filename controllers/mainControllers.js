@@ -5,15 +5,29 @@ const Feature = new mongoose.model("Feature", featureSchema);
 
 const getAllFeatures = async (req, res) => {
     try {
-        const features = await Feature.find({})
+        const sortOptions = {};
+
+        // Get sorting options from query parameters or default to createdAt
+        const sortBy = req.query.sortBy || 'createdAt';
+        const order = req.query.order || 'asc';
+
+        // Define the sort order for the requested field
+        sortOptions[sortBy] = order === 'desc' ? -1 : 1;
+
+        // If sorting by vote or comments is requested, add those fields to the sort options
+        if (sortBy === 'votes' || sortBy === 'comments') {
+            sortOptions[sortBy] = order === 'desc' ? -1 : 1;
+        }
+
+        const features = await Feature.find({}).sort(sortOptions);
+
         res.status(200).json({ features });
     } catch (err) {
         res.status(500).json({
             error: "There was a server side error!",
         });
     }
-
-}
+};
 
 const searchFeatures = async (req, res, next) => {
     try {
