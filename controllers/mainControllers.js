@@ -19,7 +19,9 @@ const getAllFeatures = async (req, res) => {
             sortOptions[sortBy] = order === 'desc' ? -1 : 1;
         }
 
-        const features = await Feature.find({}).sort(sortOptions);
+        const statusFilter = req.query.status ? { status: req.query.status } : {};
+
+        const features = await Feature.find(statusFilter).sort(sortOptions);
 
         res.status(200).json({ features });
     } catch (err) {

@@ -14,6 +14,10 @@ const FeatureSchema = new mongoose.Schema({
         trim: true,
         maxlength: [255, 'Tittle can not be more than 255 characters'],
     },
+    status: {
+        type: String,
+        default: 'pending'
+    },
     createdAt: {
         type: Date,
         default: Date.now // Automatically sets the current date when a document is created
