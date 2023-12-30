@@ -9,7 +9,7 @@ const getAllFeatures = async (req, res) => {
 
         // Get sorting options from query parameters or default to createdAt
         const sortBy = req.query.sortBy || 'createdAt';
-        const order = req.query.order || 'asc';
+        const order = req.query.order || 'desc';
 
         // Define the sort order for the requested field
         sortOptions[sortBy] = order === 'desc' ? -1 : 1;

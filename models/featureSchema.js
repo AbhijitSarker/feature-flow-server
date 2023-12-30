@@ -14,9 +14,9 @@ const FeatureSchema = new mongoose.Schema({
         trim: true,
         maxlength: [255, 'Tittle can not be more than 255 characters'],
     },
-    date: {
+    createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now // Automatically sets the current date when a document is created
     },
     userName: {
         type: String,
@@ -29,6 +29,10 @@ const FeatureSchema = new mongoose.Schema({
         maxlength: 255
     },
     votes: {
+        type: Number,
+        default: 7,
+    },
+    comments: {
         type: Number,
         default: 7,
     }
