@@ -1,28 +1,27 @@
 const mongoose = require('mongoose');
 
-const commentSchema = new mongoose.Schema({
+const CommentSchema = new mongoose.Schema({
     comment: {
-        type: 'string',
+        type: String,
         required: true
-    },
 
+    },
     featureId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Feature'
+        ref: 'Feature' // Reference to the Feature model
     },
-
     name: {
         type: String,
     },
     email: {
         type: String,
-        unique: true,
     },
     photoURL: {
         type: String,
         default: 'https://avatar.iran.liara.run/public/46',
         maxlength: 255,
     },
+
 });
 
-module.exports = commentSchema;
+module.exports = CommentSchema;

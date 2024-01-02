@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { createComment } = require('../controllers/commentController');
+const { createComment, getCommentsByFeatureId } = require('../controllers/commentController');
 
 
-router.route('/').get().post(createComment)
-router.route('/:id').get().patch().delete()
+router.route('/').get(getCommentsByFeatureId).post(createComment)
+// router.route('/:id').get().patch().delete()
 
 module.exports = router;

@@ -11,7 +11,7 @@ const createUser = async (req, res) => {
             message: "User was Created successfully!",
         });
     } catch (err) {
-        res.status(200).json({
+        res.status(500).json({
             error: "There was a server side error!",
         });
     }
