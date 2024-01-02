@@ -37,7 +37,20 @@ const getCommentsByFeatureId = async (req, res) => {
     }
 }
 
+const deleteComment = async (req, res) => {
+    try {
+        const { id: commentId } = req.params;
+        const comment = await Comment.findOneAndDelete({ _id: commentId });
+        res.status(200).json({ comment });
+    } catch (err) {
+        res.status(500).json({
+            error: "There was a server side error!",
+        });
+    }
+}
+
 module.exports = {
     createComment,
-    getCommentsByFeatureId
+    getCommentsByFeatureId,
+    deleteComment,
 }
