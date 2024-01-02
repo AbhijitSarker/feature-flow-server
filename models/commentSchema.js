@@ -7,8 +7,7 @@ const CommentSchema = new mongoose.Schema({
 
     },
     featureId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Feature' // Reference to the Feature model
+        type: String,
     },
     name: {
         type: String,

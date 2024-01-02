@@ -21,11 +21,10 @@ const createComment = async (req, res) => {
 
 const getCommentsByFeatureId = async (req, res) => {
     try {
-        const { featureId } = req.params; // Extracting featureId from URL params
-        console.log(req.params);
 
+        const commentsFilter = { featureId: req.query.featureId }
         // Fetch all comments that match the given featureId
-        const comments = await Comment.find();
+        const comments = await Comment.find(commentsFilter);
 
         res.status(200).json({
             message: "Comment retrieved successfully!",
