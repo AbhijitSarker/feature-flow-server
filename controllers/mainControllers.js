@@ -113,11 +113,29 @@ const deleteFeature = async (req, res) => {
 
 }
 
+const likeUnlike = async (req, res) => {
+    try {
+        const feature = await Feature.findById(req.params.id);
+        console.log(req.body)
+        if (!feature.likes.includes(req.body.email)) {
+            await feature.updateOne({ $push: { likes: req.body.email } })
+            res.status(200).json('feature liked successfully');
+        } else {
+            await feature.updateOne({ $pull: { likes: req.body.email } })
+            res.status(200).json('feature unLiked successfully');
+        }
+
+    } catch (err) {
+
+    }
+}
+
 module.exports = {
     getAllFeatures,
     searchFeatures,
     createFeature,
     updateFeature,
     deleteFeature,
-    getFeature
+    getFeature,
+    likeUnlike
 }

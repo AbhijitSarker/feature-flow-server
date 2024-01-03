@@ -36,6 +36,13 @@ const FeatureSchema = new mongoose.Schema({
         type: Number,
         default: 7,
     },
+    userId: {
+        type: String,
+    },
+    likes: {
+        type: Array,
+        default: []
+    },
     comments: {
         type: Number,
         default: 7,
