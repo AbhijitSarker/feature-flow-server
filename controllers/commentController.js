@@ -26,10 +26,7 @@ const getCommentsByFeatureId = async (req, res) => {
         // Fetch all comments that match the given featureId
         const comments = await Comment.find(commentsFilter);
 
-        res.status(200).json({
-            message: "Comment retrieved successfully!",
-            comments: comments
-        });
+        res.status(200).json({ comments });
     } catch (err) {
         res.status(500).json({
             error: "There was a server side error!",
