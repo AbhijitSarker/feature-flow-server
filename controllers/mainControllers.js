@@ -14,8 +14,8 @@ const getAllFeatures = async (req, res) => {
         // Define the sort order for the requested field
         sortOptions[sortBy] = order === 'desc' ? -1 : 1;
 
-        // If sorting by vote or comments is requested, add those fields to the sort options
-        if (sortBy === 'votes' || sortBy === 'comments') {
+        // If sorting by  comments is requested, add those fields to the sort options
+        if (sortBy === 'comments') {
             sortOptions[sortBy] = order === 'desc' ? -1 : 1;
         }
 
