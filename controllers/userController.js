@@ -15,9 +15,19 @@ const createUser = async (req, res) => {
             error: "There was a server side error!",
         });
     }
-
 }
 
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find();
+        res.status(200).json({ users });
+    } catch (err) {
+        res.status(500).json({ error: 'There was a server side error!' });
+    }
+};
+
+
+
 module.exports = {
-    createUser
+    createUser, getAllUsers
 }
