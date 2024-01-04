@@ -41,7 +41,25 @@ const getSingleUser = async (req, res) => {
     }
 };
 
+const updateUser = async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
+            new: true,
+            runValidators: true,
+        });
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json({ message: 'User updated successfully!', user: updatedUser });
+    } catch (err) {
+        res.status(500).json({ error: 'There was a server side error!' });
+    }
+};
+
 
 module.exports = {
-    createUser, getAllUsers, getSingleUser
+    createUser, getAllUsers, getSingleUser, updateUser,
 }
