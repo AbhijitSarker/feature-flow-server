@@ -4,6 +4,6 @@ const { createComment, getCommentsByFeatureId, deleteComment } = require('../con
 
 
 router.route('/').get(getCommentsByFeatureId).post(createComment)
-router.route('/:id').delete(deleteComment)
+router.route('/:commentId/:featureId').delete(deleteComment)
 
 module.exports = router;

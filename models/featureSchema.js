@@ -20,7 +20,7 @@ const FeatureSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now // Automatically sets the current date when a document is created
+        default: Date.now
     },
     userName: {
         type: String,
@@ -32,10 +32,6 @@ const FeatureSchema = new mongoose.Schema({
         type: String,
         maxlength: 255
     },
-    votes: {
-        type: Number,
-        default: 7,
-    },
     userId: {
         type: String,
     },
@@ -43,10 +39,12 @@ const FeatureSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
-    comments: {
-        type: Number,
-        default: 7,
-    }
+    comments: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 })
 
 module.exports = FeatureSchema;

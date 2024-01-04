@@ -20,7 +20,10 @@ const CommentSchema = new mongoose.Schema({
         default: 'https://avatar.iran.liara.run/public/46',
         maxlength: 255,
     },
-
+    feature: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Feature',
+    }
 });
 
 module.exports = CommentSchema;
