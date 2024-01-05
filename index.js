@@ -5,6 +5,7 @@ const connectDB = require('./db/connect');
 const mainRoutes = require('./routes/mainRoutes')
 const userRoutes = require('./routes/userRoutes')
 const commentRoutes = require('./routes/commentRoutes')
+const appRoutes = require('./routes/appRoutes')
 const PORT = 3000; // Define the port number
 const cors = require('cors');
 
@@ -17,13 +18,11 @@ app.get('/', (req, res) => {
     res.send('Hello, Express!');
 });
 
-
-
-
+//routes
 app.use('/api/v1/feature', mainRoutes)
 app.use('/api/v1/user', userRoutes)
 app.use('/api/v1/comment', commentRoutes)
-
+app.use('/api/v1/app', appRoutes)
 
 
 //default error handler
