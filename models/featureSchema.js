@@ -12,7 +12,7 @@ const FeatureSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        maxlength: [255, 'Tittle can not be more than 255 characters'],
+        maxlength: [500, 'Tittle can not be more than 500 characters'],
     },
     status: {
         type: String,
