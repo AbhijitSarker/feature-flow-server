@@ -1,3 +1,50 @@
+# Feature Flow Server
+
+## Istallation Process
+
+1. ### Clone the Project:
+
+   - Clone the project repository.
+   - Use `git clone https://github.com/AbhijitSarker/feature-flow-server.git` in your terminal.
+
+2. ### Install Dependencies:
+
+   - Navigate to the project directory.
+   - Run `npm install` to install all project dependencies specified in `package.json`.
+
+3. ### Environment Variables:
+
+   - Create a `.env` file in the root directory.
+   - Add your environment variables (e.g., DB_PASS, DB_USER, DB_NAME) in the `.env` file:
+
+     `DB_PASS=vvf9SvLp1xYo8Ywz
+DB_USER=feature-flow
+DB_NAME=feature-flow`
+
+4. ### Backend Setup:
+
+   - Make sure you have Node.js installed on your machine.
+   - Set up your MongoDB Atlas account or local MongoDB server.
+   - Update the `start` function in your backend code to use the environment variables:
+
+     javascriptCopy code
+
+     `const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@<your_cluster_url>/<your_db_name>?retryWrites=true&w=majority`;`
+
+5. ### Run the Server:
+
+   - Execute `npm start` or `nodemon index.js` in the terminal to start the backend server.
+   - Check the console for the message "Server is running at PORT..." to ensure it's running.
+
+### Additional Tips:
+
+- Verify that MongoDB is running and accessible with the provided URI.
+- Make sure the MongoDB driver (Mongoose) is correctly installed.
+- Check for any errors or warnings displayed in the console during server startup.
+- Test API endpoints to ensure the backend functions as expected.
+
+This setup process assumes you've already set up Node.js, MongoDB, and have access to the required credentials. Adjust the steps according to your specific environment and project structure.
+
 # Feature API Documentation
 
 The Feature API is designed to manage feature requests, allowing users to perform CRUD operations and search for specific features. This documentation outlines the available endpoints and their functionalities.
