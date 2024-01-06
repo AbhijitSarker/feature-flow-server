@@ -73,3 +73,40 @@ The base URL for accessing the Feature API is `/api/v1/feature`.
     - `id`: Feature ID
   - Request Body: JSON object containing `email` to track likes.
   - Response: Returns a success message indicating whether the feature was liked or unliked.
+
+# Comment API Documentation
+
+The Comment API manages comments associated with features, allowing users to add, retrieve, and delete comments.
+
+## Base URL
+
+The base URL for accessing the Comment API is `/api/v1/comment`.
+
+## Endpoints
+
+### Get comments by Feature ID
+
+- URL: `/`
+- Method: `GET`
+- Description: Retrieves comments associated with a specific feature.
+  - Query Parameters:
+    - `featureId`: ID of the feature to retrieve comments for.
+  - Response: Returns a JSON object containing an array of comments for the specified feature.
+
+### Create a new comment
+
+- URL: `/`
+- Method: `POST`
+- Description: Creates a new comment and associates it with a specific feature.
+  - Request Body: JSON object representing the new comment. Should include `featureId` to associate with the feature.
+  - Response: Returns a success message and the created comment upon successful creation.
+
+### Delete a comment
+
+- URL: `/:commentId/:featureId`
+- Method: `DELETE`
+- Description: Deletes a specific comment associated with a feature by its ID.
+  - Params:
+    - `commentId`: ID of the comment to be deleted.
+    - `featureId`: ID of the feature the comment is associated with.
+  - Response: Returns a JSON object containing the deleted comment details.
