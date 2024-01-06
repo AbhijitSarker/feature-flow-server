@@ -18,6 +18,9 @@ const AppSchema = new mongoose.Schema({
         type: String,
         default: 'Pending'
     },
+    logo: {
+        type: String,
+    }
 
 })
 
