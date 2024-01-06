@@ -110,3 +110,56 @@ The base URL for accessing the Comment API is `/api/v1/comment`.
     - `commentId`: ID of the comment to be deleted.
     - `featureId`: ID of the feature the comment is associated with.
   - Response: Returns a JSON object containing the deleted comment details.
+
+# User API Documentation
+
+The User API manages user-related operations, allowing users to be created, retrieved, updated, and deleted.
+
+## Base URL
+
+The base URL for accessing the User API is `/api/v1/user`.
+
+## Endpoints
+
+### Get all users
+
+- URL: `/`
+- Method: `GET`
+- Description: Retrieves all users.
+  - Response: Returns a JSON object containing an array of users.
+
+### Create a new user
+
+- URL: `/`
+- Method: `POST`
+- Description: Creates a new user.
+  - Request Body: JSON object representing the new user.
+  - Response: Returns a success message upon successful user creation.
+
+### Get a single user
+
+- URL: `/:userId`
+- Method: `GET`
+- Description: Retrieves details of a specific user by ID.
+  - Params:
+    - `userId`: ID of the user to retrieve.
+  - Response: Returns a JSON object containing the details of the requested user.
+
+### Update a user
+
+- URL: `/:userId`
+- Method: `PATCH`
+- Description: Updates an existing user by ID.
+  - Params:
+    - `userId`: ID of the user to update.
+  - Request Body: JSON object containing updated user data.
+  - Response: Returns a success message and the updated user details upon successful update.
+
+### Delete a user
+
+- URL: `/:userId`
+- Method: `DELETE`
+- Description: Deletes a user by ID.
+  - Params:
+    - `userId`: ID of the user to delete.
+  - Response: Returns a success message and the deleted user details upon successful deletion.
