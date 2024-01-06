@@ -30,7 +30,8 @@ const FeatureSchema = new mongoose.Schema({
     },
     userAvatar: {
         type: String,
-        maxlength: 255
+        maxlength: 255,
+        default: 'https://avatar.iran.liara.run/public/46'
     },
     userId: {
         type: String,
