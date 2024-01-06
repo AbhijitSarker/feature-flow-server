@@ -163,3 +163,42 @@ The base URL for accessing the User API is `/api/v1/user`.
   - Params:
     - `userId`: ID of the user to delete.
   - Response: Returns a success message and the deleted user details upon successful deletion.
+
+# App Information API Documentation
+
+The App Information API manages information related to the application, allowing retrieval, creation, and updating of app details.
+
+## Base URL
+
+The base URL for accessing the App Information API is `/api/v1/app`.
+
+## Endpoints
+
+### Get app information
+
+- **URL:** `/`
+- **Method:** `GET`
+- **Description:** Retrieves information about the app.
+  - **Response:** Returns a JSON object containing app information.
+
+### Create app information
+
+- **URL:** `/`
+- **Method:** `POST`
+- **Description:** Creates new app information.
+  - **Request Body:** JSON object representing the new app information.
+  - **Response:** Returns a success message upon successful insertion of app information.
+
+### Update app information
+
+- **URL:** `/:id`
+- **Method:** `PATCH`
+- **Description:** Updates existing app information by ID.
+  - **Params:**
+    - `id`: ID of the app information to update.
+  - **Request Body:** JSON object containing updated app information.
+  - **Response:** Returns a success message and the updated app information upon successful update.
+
+## Error Handling
+
+- The API returns appropriate error responses in case of server-side errors or invalid requests.
