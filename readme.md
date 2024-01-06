@@ -1,5 +1,31 @@
 # Feature Flow Server
 
+The project revolves around a feature board management system designed to streamline feature requests, updates, and management within a web application. Its primary goals include:
+
+1.  **Feature Request Management:**
+
+    - Allow users to submit feature requests or suggestions through a dedicated platform.
+    - Enable administrators to review, update, and prioritize these requests.
+
+2.  **Dashboard for Administrators:**
+
+    - Provide a user-friendly dashboard for administrators to manage feature requests efficiently.
+    - Allow administrators to update feature details such as title, description, status, and sorting order.
+
+3.  **Enhanced User Experience:**
+
+    - Improve user experience by offering a centralized platform for users to submit, track, and engage with feature requests.
+
+4.  **Efficient Organization and Prioritization:**
+
+    - Facilitate effective organization and prioritization of feature requests based on status, user feedback, and importance.
+
+5.  **Configurability and Flexibility:**
+
+    - Provide configurability to allow administrators to update the web app's logo, description, and other essential details easily.
+
+The primary focus is on creating a feature-rich, user-centric platform that empowers both users and administrators, streamlining the process of handling feature requests while enhancing overall user experience and product development.
+
 ## Istallation Process
 
 1. ### Clone the Project:
@@ -17,19 +43,11 @@
    - Create a `.env` file in the root directory.
    - Add your environment variables (e.g., DB_PASS, DB_USER, DB_NAME) in the `.env` file:
 
-     `DB_PASS=vvf9SvLp1xYo8Ywz
-DB_USER=feature-flow
-DB_NAME=feature-flow`
-
 4. ### Backend Setup:
 
    - Make sure you have Node.js installed on your machine.
    - Set up your MongoDB Atlas account or local MongoDB server.
-   - Update the `start` function in your backend code to use the environment variables:
-
-     javascriptCopy code
-
-     `const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@<your_cluster_url>/<your_db_name>?retryWrites=true&w=majority`;`
+   - Update the `start` function in your backend code to use the environment variables.
 
 5. ### Run the Server:
 
