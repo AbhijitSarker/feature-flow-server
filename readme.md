@@ -1,5 +1,10 @@
 # Feature Flow Server
 
+- Frontend Code: https://github.com/AbhijitSarker/feature-flow
+- Frontend Live Link: [https://feature--flow.web.app](https://feature--flow.web.app)
+
+## App Details
+
 The project revolves around a feature board management system designed to streamline feature requests, updates, and management within a web application. Its primary goals include:
 
 1.  **Feature Request Management:**
@@ -165,6 +170,16 @@ The base URL for accessing the Comment API is `/api/v1/comment`.
 - Description: Creates a new comment and associates it with a specific feature.
   - Request Body: JSON object representing the new comment. Should include `featureId` to associate with the feature.
   - Response: Returns a success message and the created comment upon successful creation.
+
+### Update a Comment
+
+- URL: `/:id`
+- Method: `PATCH`
+- Description: Updates an existing Comment by its ID with provided request body data.
+  - Params:
+    - `id`: Comment ID
+  - Request Body: JSON object containing updated Comment data.
+  - Response: Returns a JSON object containing the updated Comment details.
 
 ### Delete a comment
 

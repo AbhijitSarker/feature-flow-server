@@ -46,6 +46,23 @@ const getCommentsByFeatureId = async (req, res) => {
     }
 }
 
+const updateComment = async (req, res) => {
+    try {
+        const { commentId } = req.params;
+        console.log(req.params);
+        const comment = await Comment.findOneAndUpdate({ _id: commentId }, req.body, {
+            new: true,
+            runValidators: true,
+        })
+
+        res.status(200).json({ comment })
+    } catch {
+        res.status(500).json({
+            error: "There was a server side error!",
+        });
+    }
+}
+
 const deleteComment = async (req, res) => {
     const { featureId, commentId } = req.params;
     try {
@@ -69,4 +86,5 @@ module.exports = {
     createComment,
     getCommentsByFeatureId,
     deleteComment,
+    updateComment
 }
