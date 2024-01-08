@@ -41,6 +41,22 @@ const getSingleUser = async (req, res) => {
     }
 };
 
+const getUserByEmail = async (req, res) => {
+    try {
+        const userEmail = req.params.userEmail;
+        console.log(req.params);
+        const user = await User.findOne({ email: userEmail });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json({ user });
+    } catch (err) {
+        res.status(500).json({ error: 'There was a server side error!' });
+    }
+};
+
 const updateUser = async (req, res) => {
     try {
         const userId = req.params.userId;
@@ -75,5 +91,5 @@ const deleteUser = async (req, res) => {
 };
 
 module.exports = {
-    createUser, getAllUsers, getSingleUser, updateUser, deleteUser
+    createUser, getAllUsers, getSingleUser, updateUser, deleteUser, getUserByEmail
 }
